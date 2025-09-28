@@ -1,0 +1,215 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Simulação CACOPCA (SIAPE) — Tabela Estendida</title>
+  <style>
+    :root{
+      --bg:#f4f7fb;
+      --card:#ffffff;
+      --muted:#68707a;
+      --accent:#2366d1;
+      --accent-2:#1e7a59;
+      --border:#e6e9ef;
+    }
+    body{
+      margin:0;
+      font-family:Inter, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+      background:linear-gradient(180deg,var(--bg),#eef3fb);
+      color:#0f1720;
+      padding:28px;
+    }
+    .container{
+      max-width:1080px;
+      margin:0 auto;
+    }
+    header{
+      display:flex;
+      align-items:baseline;
+      gap:16px;
+      margin-bottom:18px;
+    }
+    header h1{
+      font-size:20px;
+      margin:0;
+    }
+    header p{
+      margin:0;
+      color:var(--muted);
+      font-size:13px;
+    }
+    .card{
+      background:var(--card);
+      border:1px solid var(--border);
+      border-radius:10px;
+      box-shadow: 0 6px 18px rgba(20,35,60,0.06);
+      padding:18px;
+    }
+    .table-wrap{
+      overflow:auto;
+    }
+    table{
+      width:100%;
+      border-collapse:collapse;
+      font-size:13px;
+      min-width:960px;
+    }
+    thead th{
+      text-align:left;
+      font-weight:600;
+      padding:12px;
+      background:linear-gradient(90deg, rgba(35,102,209,0.06), rgba(30,122,89,0.02));
+      color:#0b2540;
+      border-bottom:1px solid var(--border);
+      position:sticky;
+      top:0;
+      z-index:2;
+    }
+    tbody td{
+      padding:12px;
+      border-bottom:1px solid #f1f3f6;
+      color:#0b1720;
+    }
+    tbody tr:hover{
+      background:#fbfdff;
+    }
+    .muted{ color:var(--muted); font-size:12px; }
+    .badge{
+      display:inline-block;
+      padding:6px 8px;
+      border-radius:999px;
+      font-size:12px;
+      color:white;
+    }
+    .ativo{ background:var(--accent); }
+    .afastado{ background:#d95b3b; }
+    .exonerado{ background:#6b7280; }
+    .controls{
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+      gap:10px;
+      margin-bottom:12px;
+    }
+    .search{
+      display:flex;
+      gap:8px;
+      align-items:center;
+    }
+    .search input{
+      padding:8px 10px;
+      border-radius:8px;
+      border:1px solid var(--border);
+      background:white;
+      width:260px;
+    }
+    .small{
+      font-size:12px;
+      color:var(--muted);
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <header>
+      <h1>Simulação — Resultado do comando <span style="color:var(--accent)">CACOPCA</span></h1>
+      <p class="small">Tabela fictícia com 7 linhas, 3 números de matrícula distintos, e colunas extras de CPF e jornada.</p>
+    </header>
+
+    <div class="card">
+      <div class="controls">
+        <div class="search">
+          <label for="q" class="small">Pesquisar:</label>
+          <input id="q" placeholder="Nome, matrícula, CPF, lotação..." />
+        </div>
+        <div class="small">Total de linhas: <strong id="total">7</strong></div>
+      </div>
+
+      <div class="table-wrap">
+        <table aria-label="Simulação CACOPCA Estendida">
+          <thead>
+            <tr>
+              <th>Matrícula</th>
+              <th>CPF</th>
+              <th>Nome</th>
+              <th>Função / Cargo</th>
+              <th>Jornada</th>
+              <th>Lotação</th>
+              <th>Data Admissão</th>
+              <th>Situação</th>
+            </tr>
+          </thead>
+          <tbody id="tbody">
+            <!-- MATRÍCULA 1: 3 LINHAS -->
+            <tr>
+              <td><strong>123456-7</strong></td>
+              <td>123.456.789-00</td>
+              <td>ANA CARLA SOUZA</td>
+              <td>Analista Administrativo</td>
+              <td>40h</td>
+              <td>Gabinete - Brasília</td>
+              <td class="muted">02/04/2012</td>
+              <td><span class="badge ativo">ATIVO</span></td>
+            </tr>
+            <tr>
+              <td><strong>123456-7</strong></td>
+              <td>123.456.789-00</td>
+              <td>ANA CARLA SOUZA</td>
+              <td>Consultora Técnica</td>
+              <td>40h</td>
+              <td>Departamento de Projetos</td>
+              <td class="muted">02/04/2012</td>
+              <td><span class="badge ativo">ATIVO</span></td>
+            </tr>
+            <tr>
+              <td><strong>123456-7</strong></td>
+              <td>123.456.789-00</td>
+              <td>ANA CARLA SOUZA</td>
+              <td>Chefia de Divisão</td>
+              <td>40h</td>
+              <td>Unidade Regional - RJ</td>
+              <td class="muted">02/04/2012</td>
+              <td><span class="badge exonerado">EXONERADO</span></td>
+            </tr>
+
+            <!-- MATRÍCULA 2: 2 LINHAS -->
+            <tr>
+              <td><strong>234567-8</strong></td>
+              <td>234.567.890-11</td>
+              <td>BRUNO M. ALMEIDA</td>
+              <td>Técnico em TI</td>
+              <td>30h</td>
+              <td>Informática - SP</td>
+              <td class="muted">18/09/2015</td>
+              <td><span class="badge ativo">ATIVO</span></td>
+            </tr>
+            <tr>
+              <td><strong>234567-8</strong></td>
+              <td>234.567.890-11</td>
+              <td>BRUNO M. ALMEIDA</td>
+              <td>Suplente Técnico</td>
+              <td>30h</td>
+              <td>Infraestrutura - SP</td>
+              <td class="muted">18/09/2015</td>
+              <td><span class="badge afastado">AFASTADO</span></td>
+            </tr>
+
+            <!-- MATRÍCULA 3: 2 LINHAS -->
+            <tr>
+              <td><strong>345678-9</strong></td>
+              <td>345.678.901-22</td>
+              <td>CARLA P. FERREIRA</td>
+              <td>Assistente Administrativa</td>
+              <td>40h</td>
+              <td>Coordenação - BH</td>
+              <td class="muted">05/01/2019</td>
+              <td><span class="badge ativo">ATIVO</span></td>
+            </tr>
+            <tr>
+              <td><strong>345678-9</strong></td>
+              <td>345.678.901-22</td>
+              <td>CARLA P. FERREIRA</td>
+              <td>Substituta</td>
+              <td>40h</td>
+              <td>Coord
